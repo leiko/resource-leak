@@ -23,9 +23,9 @@ public class PropertiesService {
 
 		Properties properties = getFiles();
 
-		String propertieValue = properties.get(name).toString();
+		String propertiesValue = properties.get(name).toString();
 
-		return propertieValue;
+		return propertiesValue;
 	}
 
 }
