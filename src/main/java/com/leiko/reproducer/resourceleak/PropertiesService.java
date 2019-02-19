@@ -1,3 +1,5 @@
+package com.leiko.reproducer.resourceleak;
+
 import java.io.IOException;
 import java.util.Properties;
 

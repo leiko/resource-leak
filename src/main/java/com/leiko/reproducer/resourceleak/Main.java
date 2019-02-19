@@ -1,3 +1,5 @@
+package com.leiko.reproducer.resourceleak;
+
 public class Main {
 
 	static PropertiesService propService = new PropertiesService();
