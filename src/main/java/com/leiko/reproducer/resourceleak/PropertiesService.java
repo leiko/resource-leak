@@ -1,7 +1,9 @@
 package com.leiko.reproducer.resourceleak;
 
-public interface PropertiesService {
+import java.util.Properties;
 
-	public String getProperty(String propertiesFile, String value);
+public interface PropertiesService {
+	
+	public Properties getProperties();
 	
 }

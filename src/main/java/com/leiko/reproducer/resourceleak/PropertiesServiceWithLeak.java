@@ -1,26 +1,33 @@
 package com.leiko.reproducer.resourceleak;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 public class PropertiesServiceWithLeak implements PropertiesService {
 
+	private String propertiesFile;
+
+	public PropertiesServiceWithLeak(String propertiesFile) {
+		this.propertiesFile = propertiesFile;
+	}
+
 	@Override
-	public String getProperty(String propertiesFile, String value) {
+	public Properties getProperties() {
 
 		Properties properties = new Properties();
 
 		try {
-			properties.load(Properties.class.getResourceAsStream(propertiesFile));
+
+			InputStream stream = PropertiesServiceWithLeak.class.getResourceAsStream(this.propertiesFile);
+			properties.load(stream);
 
 		} catch (IOException e) {
 			e.printStackTrace();
-
 		}
 
-		return properties.get(value).toString();
+		return properties;
 
 	}
-
 
 }

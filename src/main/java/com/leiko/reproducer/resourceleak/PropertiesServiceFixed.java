@@ -6,11 +6,18 @@ import java.util.Properties;
 
 public class PropertiesServiceFixed implements PropertiesService {
 
+	private String propertiesFile;
+
+	public PropertiesServiceFixed(String propertiesFile) {
+		this.propertiesFile = propertiesFile;
+	}
+
 	@Override
-	public String getProperty(String propertiesFile, String value) {
+	public Properties getProperties() {
+		
 		Properties properties = new Properties();
 
-		try (InputStream stream = PropertiesService.class.getResourceAsStream(propertiesFile)) {
+		try (InputStream stream = PropertiesService.class.getResourceAsStream(this.propertiesFile)) {
 
 			properties.load(stream);
 
@@ -18,9 +25,8 @@ public class PropertiesServiceFixed implements PropertiesService {
 			e.printStackTrace();
 		}
 
-		return properties.get(value).toString();
+		return properties;
 
 	}
-
 
 }
